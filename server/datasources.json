@@ -1,0 +1,12 @@
+{
+  "mongoLab": {
+    "host": "ds161012.mlab.com",
+    "port": 61012,
+    "url": "mongodb://skyrocker:Devil666@ds161012.mlab.com:61012/js06",
+    "database": "js06",
+    "password": "devil666",
+    "name": "mongoLab",
+    "user": "skyrocker",
+    "connector": "mongodb"
+  }
+}

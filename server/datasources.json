@@ -4,9 +4,29 @@
     "port": 61012,
     "url": "mongodb://skyrocker:Devil666@ds161012.mlab.com:61012/js06",
     "database": "js06",
-    "password": "devil666",
+    "password": "Devil666",
     "name": "mongoLab",
     "user": "skyrocker",
     "connector": "mongodb"
+  },
+  "elephant": {
+    "host": "horton.elephantsql.com",
+    "port": 5432,
+    "url": "postgres://dqggtgto:JsmseSMgLf41b96oMM2jEA3A4UNO2l1j@horton.elephantsql.com:5432/dqggtgto",
+    "database": "dqggtgto",
+    "password": "JsmseSMgLf41b96oMM2jEA3A4UNO2l1j",
+    "name": "elephant",
+    "user": "dqggtgto",
+    "connector": "postgresql"
+  },
+  "reserve": {
+    "host": "horton.elephantsql.com",
+    "port": 5432,
+    "url": "postgres://jixefaaj:bvBEJhdBJqgQ9wozYwh-cqmP6t-cmkwF@horton.elephantsql.com:5432/jixefaaj",
+    "database": "jixefaaj",
+    "password": "bvBEJhdBJqgQ9wozYwh-cqmP6t-cmkwF",
+    "name": "reserve",
+    "user": "jixefaaj",
+    "connector": "postgresql"
   }
 }

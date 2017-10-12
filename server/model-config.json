@@ -14,7 +14,7 @@
     ]
   },
   "task": {
-    "dataSource": "mongoLab",
+    "dataSource": "reserve",
     "public": true
   }
 }

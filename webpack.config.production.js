@@ -1,7 +1,7 @@
 'use strict';
 
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -15,9 +15,9 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         loaders: ['babel-loader'],
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         include: path.join(__dirname, 'client'),
       },
       {

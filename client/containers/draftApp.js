@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as rootActions from '../actions';
 import * as todoActions from '../components/todoList/todoActions';
 import TodoList from '../components/todoList/todoList';
+import ErrorHandler from '../components/errorHandlers/databaseError';
 
 class DraftApp extends Component {
   constructor(props) {
@@ -11,32 +11,31 @@ class DraftApp extends Component {
   }
 
   componentWillMount() {
-    this.props.getStarted();
     this.props.getTasks();
   }
 
   render() {
     return (
-      <div>
+      <ErrorHandler>
         <TodoList
+          tasks={this.props.tasks}
           addTask={this.props.addTask}
           removeTask={this.props.removeTask}
-          draftState={this.props.draftState}
+          toggleTask={this.props.toggleTask}
         />
-      </div>
+      </ErrorHandler>
     );
   }
 }
 
-
 function mapStateToProps(state) {
   return {
-    draftState: state
+    tasks: state.todoReducer.tasks,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Object.assign({}, rootActions, todoActions), dispatch);
+  return bindActionCreators(todoActions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DraftApp);

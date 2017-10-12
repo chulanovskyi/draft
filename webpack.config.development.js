@@ -1,7 +1,7 @@
 'use strict';
 
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
@@ -24,9 +24,12 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react', 'stage-2'],
+          presets: [
+            'babel-preset-env',
+            'react',
+            'stage-2',
+          ],
         },
-        exclude: /node_modules/,
         include: path.join(__dirname, 'client'),
       },
       {

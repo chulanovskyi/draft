@@ -19,3 +19,9 @@ export const removeTask = ({taskId}) => {
     .then((response) => response.data)
     .catch((error) => error.data);
 };
+
+export const toggleTask = ({taskId, isActive}) => {
+  return axios.patch(`${tasksUrl}/${taskId}`, {isActive: isActive})
+    .then((response) => response.data)
+    .catch((error) => error.data);
+};

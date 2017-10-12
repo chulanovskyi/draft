@@ -9,12 +9,27 @@
   "properties": {
     "name": {
       "type": "string",
-      "required": true
-    },
-    "status": {
-      "type": "string",
       "required": true,
-      "default": "active"
+      "postgresql": {
+        "columnName": "name",
+        "dataType": "character varying",
+        "dataLength": 256,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      }
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "postgresql": {
+        "columnName": "isActive",
+        "dataType": "Boolean",
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      }
     }
   },
   "validations": [],

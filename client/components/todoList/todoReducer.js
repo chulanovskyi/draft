@@ -1,26 +1,32 @@
-import R from 'ramda';
-import {WELCOME_TEXT} from '../constants';
-import {GET_STARTED} from '../actions';
-import {GET_TASKS_DONE, ADD_TASK_DONE, REMOVE_TASK_DONE} from '../components/todoList/todoActions';
+import * as R from 'ramda';
+import {GET_TASKS_DONE, ADD_TASK_DONE, REMOVE_TASK_DONE, TOGGLE_TASK_DONE} from './todoActions';
 
 const initialState = {
-  welcomeText: 'No hello',
   tasks: [],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-  case GET_STARTED:
-    return {...state, welcomeText: WELCOME_TEXT};
+
   case GET_TASKS_DONE:
     return {...state, tasks: action.tasks};
+
   case ADD_TASK_DONE:
     return R.mergeAll([
       R.dissoc('tasks', state),
       {tasks: R.append(action.task, state.tasks)},
     ]);
+
   case REMOVE_TASK_DONE:
     return state;
+
+  case TOGGLE_TASK_DONE:
+    const ind = R.findIndex(R.propEq('id', action.task.id))(state.tasks);
+    return R.mergeAll([
+      R.dissoc('tasks', state),
+      {tasks: R.update(ind, action.task, state.tasks)},
+    ]);
+
   default:
     return state;
   }

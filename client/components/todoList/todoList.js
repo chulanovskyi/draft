@@ -22,11 +22,15 @@ class TodoList extends Component {
     this.props.removeTask(taskId);
   };
 
+  handleToggle = (task) => {
+    this.props.toggleTask(task.id, !task.isActive);
+  };
+
   render() {
     return (
       <div className='container'>
         <h1 className='container__header'>
-          {this.props.draftState.welcomeText || ''}
+          Tasker 3000
         </h1>
         <input
           value={this.state.taskName}
@@ -35,16 +39,23 @@ class TodoList extends Component {
           onKeyPress={this.handleAddTask}
         />
         <ul className='container__todoList'>
-          {this.props.draftState.tasks.map((task, ind) => {
+          {this.props.tasks &&
+            this.props.tasks.map((task, ind) => {
             return (
-              <li key={ind} className='todoList__item'>
+              <li key={ind}
+                  className='todoList__item'>
                 <span
                   onClick={() => this.handleRemoveTask(task.id)}
                   className='item__removeTask'
                 >
                   X
                 </span>
-                {task.name}
+                <span
+                  onClick={() => this.handleToggle(task)}
+                  className={task.isActive ? 'item__name' : 'item__name disabled'}
+                >
+                  {task.name}
+                </span>
               </li>
             )
           })}

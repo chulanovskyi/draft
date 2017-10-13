@@ -1,5 +1,17 @@
 import React, {Component} from 'react';
+import Modal from 'react-modal';
 import './todoList.css';
+
+const taskModalStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 class TodoList extends Component {
   constructor(props) {
@@ -24,7 +36,7 @@ class TodoList extends Component {
 
   handleRemoveTask = (taskId) => {
     this.setState({showModal: true});
-    this.props.removeTask(taskId);
+    // this.props.removeTask(taskId);
   };
 
   handleToggle = (task) => {
@@ -44,7 +56,6 @@ class TodoList extends Component {
   };
 
   editTask = (e, task) => {
-    console.log(e.key);
     if (e.key === 'Enter') {
       this.setState({
         show: false,
@@ -125,7 +136,15 @@ class TodoList extends Component {
             )
           })}
         </ul>
-
+      <Modal
+        isOpen={this.state.showModal}
+        onRequestClose={() => this.setState({showModal: false})}
+        style={taskModalStyles}
+      >
+        <span>Delete task?</span>
+        <button>Yes</button>
+        <button>No</button>
+      </Modal>
       </div>
     );
   }

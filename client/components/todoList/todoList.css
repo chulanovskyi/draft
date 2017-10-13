@@ -94,6 +94,11 @@
   color: #2255DD;
 }
 
+.task__delete_modal {
+  width: 200px;
+  height: 200px;
+}
+
 .disabled {
   text-decoration: line-through;
 }

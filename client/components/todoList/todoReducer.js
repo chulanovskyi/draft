@@ -1,11 +1,12 @@
 import * as R from 'ramda';
-import {GET_TASKS_DONE, ADD_TASK_DONE, REMOVE_TASK_DONE, TOGGLE_TASK_DONE} from './todoActions';
+import {GET_TASKS_DONE, ADD_TASK_DONE, REMOVE_TASK_DONE, UPDATE_TASK_DONE, FILTER_TASKS} from './todoActions';
 
 const initialState = {
   tasks: [],
+  show: 'all',
 };
 
-function rootReducer(state = initialState, action) {
+function todoReducer(state = initialState, action) {
   switch (action.type) {
 
   case GET_TASKS_DONE:
@@ -20,16 +21,19 @@ function rootReducer(state = initialState, action) {
   case REMOVE_TASK_DONE:
     return state;
 
-  case TOGGLE_TASK_DONE:
+  case UPDATE_TASK_DONE:
     const ind = R.findIndex(R.propEq('id', action.task.id))(state.tasks);
     return R.mergeAll([
       R.dissoc('tasks', state),
       {tasks: R.update(ind, action.task, state.tasks)},
     ]);
 
+  case FILTER_TASKS:
+    return {...state, show: action.isActive};
+
   default:
     return state;
   }
 }
 
-export default rootReducer;
+export default todoReducer;

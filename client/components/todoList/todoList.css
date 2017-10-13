@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 355px;
+}
+
+.container__header {
+  color: #555;
+}
+
+.container__inputTask {
+  align-self: center;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.container__inputTask:focus{
+  outline-width: 0;
+}
+
+.container__todoList {
+  list-style: none;
+  padding-left: 0;
+  align-self: center;
+}
+
+.todoList__item {
+  color: #2255DD;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item__removeTask {
+  font-size: 15px;
+  color: #AA0000;
+  cursor: pointer;
+  margin: 0 5px 3px 5px;
+}
+
+.item__name {
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item__name:hover {
+  background: rgba(30, 30, 255, 0.05);
+}
+
+.item__editTask {
+  cursor: pointer;
+}
+
+.item__editInput{
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  width: 80%;
+  color: #2255DD;
+  font-size: 18px;
+}
+
+.container__filterSelector {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filterSelector__item {
+  padding: 5px;
+  width: 60px;
+  border-radius: 10px;
+  background: rgba(10, 120, 255, 1);
+  color: #FFF;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+}
+
+.filterSelector__item:hover {
+  transform: scale(1.1);
+}
+
+.errorHandler {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  color: #2255DD;
+}
+
+.disabled {
+  text-decoration: line-through;
+}
+
+.hidden {
+  opacity: 0;
+}

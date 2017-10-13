@@ -14,7 +14,7 @@
     ]
   },
   "task": {
-    "dataSource": "reserve",
+    "dataSource": "modelConfig",
     "public": true
   }
 }

@@ -9,7 +9,7 @@ export default class DatabaseErrorHandler extends Component {
   }
 
   componentDidCatch(err, info){
-    console.log('Database error');
+    console.log("Can't render element");
     console.log(err);
     console.log(info);
     this.setState({
@@ -19,7 +19,7 @@ export default class DatabaseErrorHandler extends Component {
 
   render(){
     if (this.state.hasError) {
-      return <div className='errorHandler'>Cannot connect to database</div>;
+      return <div className='errorHandler'>Cannot render element</div>;
     } else {
       return this.props.children;
     }

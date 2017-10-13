@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as todoActions from '../components/todoList/todoActions';
 import TodoList from '../components/todoList/todoList';
-import ErrorHandler from '../components/errorHandlers/databaseError';
+import ErrorHandler from '../components/errorHandlers/commonError';
 
 class DraftApp extends Component {
   constructor(props) {
@@ -19,9 +19,11 @@ class DraftApp extends Component {
       <ErrorHandler>
         <TodoList
           tasks={this.props.tasks}
+          show={this.props.show}
           addTask={this.props.addTask}
           removeTask={this.props.removeTask}
-          toggleTask={this.props.toggleTask}
+          updateTask={this.props.updateTask}
+          filterTasks={this.props.filterTasks}
         />
       </ErrorHandler>
     );
@@ -31,6 +33,7 @@ class DraftApp extends Component {
 function mapStateToProps(state) {
   return {
     tasks: state.todoReducer.tasks,
+    show: state.todoReducer.show,
   };
 }
 

@@ -4,7 +4,7 @@ import {
   GET_TASKS, GET_TASKS_DONE, GET_TASKS_ERROR,
   ADD_TASK, ADD_TASK_DONE, ADD_TASK_ERROR,
   REMOVE_TASK, REMOVE_TASK_DONE, REMOVE_TASK_ERROR,
-  TOGGLE_TASK, TOGGLE_TASK_DONE, TOGGLE_TASK_ERROR
+  UPDATE_TASK, UPDATE_TASK_DONE, UPDATE_TASK_ERROR
 } from "./todoActions";
 
 function* getTodos(action) {
@@ -36,12 +36,12 @@ function* removeTodo(action) {
   }
 }
 
-function* toggleTodo(action) {
+function* updateTodo(action) {
   try {
-    const task = yield call(todoApi.toggleTask, action);
-    yield put({type: TOGGLE_TASK_DONE, task});
+    const task = yield call(todoApi.updateTask, action);
+    yield put({type: UPDATE_TASK_DONE, task});
   } catch (e) {
-    yield put({type: TOGGLE_TASK_ERROR, message: e.message});
+    yield put({type: UPDATE_TASK_ERROR, message: e.message});
   }
 }
 
@@ -49,7 +49,7 @@ function* todoSaga() {
   yield takeEvery(GET_TASKS, getTodos);
   yield takeEvery(ADD_TASK, addTodo);
   yield takeEvery(REMOVE_TASK, removeTodo);
-  yield takeEvery(TOGGLE_TASK, toggleTodo);
+  yield takeEvery(UPDATE_TASK, updateTodo);
 }
 
 export default todoSaga;

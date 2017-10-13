@@ -31,9 +31,5 @@
         "nullable": "NO"
       }
     }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+  }
 }

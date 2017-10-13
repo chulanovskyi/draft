@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as R from 'ramda';
 import API from '../../config/apiConfig';
 const tasksUrl = `${API.host}/tasks`;
 
@@ -20,8 +21,8 @@ export const removeTask = ({taskId}) => {
     .catch((error) => error.data);
 };
 
-export const toggleTask = ({taskId, isActive}) => {
-  return axios.patch(`${tasksUrl}/${taskId}`, {isActive: isActive})
+export const updateTask = (action) => {
+  return axios.patch(`${tasksUrl}/${action.id}`, R.omit(['id', 'type'], action))
     .then((response) => response.data)
     .catch((error) => error.data);
 };

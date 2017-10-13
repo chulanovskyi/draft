@@ -3,13 +3,13 @@ import Modal from 'react-modal';
 import './todoList.css';
 
 const taskModalStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
   }
 };
 
@@ -136,15 +136,17 @@ class TodoList extends Component {
             )
           })}
         </ul>
-      <Modal
-        isOpen={this.state.showModal}
-        onRequestClose={() => this.setState({showModal: false})}
-        style={taskModalStyles}
-      >
-        <span>Delete task?</span>
-        <button>Yes</button>
-        <button>No</button>
-      </Modal>
+        <Modal
+          isOpen={this.state.showModal}
+          onRequestClose={() => this.setState({showModal: false})}
+          style={taskModalStyles}
+        >
+          <div className='modal__header'>Delete task?</div>
+          <div className='modal__buttons'>
+            <span className='buttons__item'>Yes</span>
+            <span className='buttons__item'>No</span>
+          </div>
+        </Modal>
       </div>
     );
   }

@@ -106,3 +106,19 @@
 .hidden {
   opacity: 0;
 }
+
+.modal__header {
+  margin-bottom: 7px;
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons__item {
+  background-color: rgba(10, 120, 255, 1);
+  padding: 2px;
+  border-radius: 5px;
+  color: #FFF;
+}

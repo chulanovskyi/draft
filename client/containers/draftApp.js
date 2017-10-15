@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as todoActions from '../components/todoList/todoActions';
 import TodoList from '../components/todoList/todoList';
 import ErrorHandler from '../components/errorHandlers/commonError';
+import './draftApp.css'
 
 class DraftApp extends Component {
   constructor(props) {

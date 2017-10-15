@@ -6,11 +6,11 @@
   justify-content: center;
   text-align: center;
   margin: 0 auto;
-  max-width: 355px;
+  max-width: 360px;
 }
 
 .container__header {
-  color: #555;
+  color: #FFF;
 }
 
 .container__inputTask {
@@ -28,44 +28,9 @@
   list-style: none;
   padding-left: 0;
   align-self: center;
-}
-
-.todoList__item {
-  color: #2255DD;
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item__removeTask {
-  font-size: 15px;
-  color: #AA0000;
-  cursor: pointer;
-  margin: 0 5px 3px 5px;
-}
-
-.item__name {
-  font-family: 'Open Sans', sans-serif;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.item__name:hover {
-  background: rgba(30, 30, 255, 0.05);
-}
-
-.item__editTask {
-  cursor: pointer;
-}
-
-.item__editInput{
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  width: 80%;
-  color: #2255DD;
-  font-size: 18px;
+  height: 450px;
+  min-width: 310px;
+  overflow-y: auto;
 }
 
 .container__filterSelector {
@@ -91,16 +56,7 @@
   display: block;
   text-align: center;
   font-size: 30px;
-  color: #2255DD;
-}
-
-.task__delete_modal {
-  width: 200px;
-  height: 200px;
-}
-
-.disabled {
-  text-decoration: line-through;
+  color: #FFF;
 }
 
 .hidden {
@@ -108,6 +64,7 @@
 }
 
 .modal__header {
+  text-align: center;
   margin-bottom: 7px;
 }
 
@@ -118,7 +75,9 @@
 
 .buttons__item {
   background-color: rgba(10, 120, 255, 1);
-  padding: 2px;
+  padding: 5px 10px;
+  margin: 0 2px;
   border-radius: 5px;
   color: #FFF;
+  cursor: pointer;
 }

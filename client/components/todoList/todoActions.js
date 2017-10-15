@@ -38,6 +38,8 @@ export function updateTask(task) {
     id: task.id,
     isActive: task.isActive,
     name: task.name,
+    history: task.history,
+    newName: task.newName,
   }
 }
 

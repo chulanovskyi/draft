@@ -30,6 +30,15 @@
         "dataScale": null,
         "nullable": "NO"
       }
-    }
+    },
+    "history": [{
+      "changedAt": {
+        "type": "date",
+        "required": true,
+        "default": "$now"
+      },
+      "from": "string",
+      "to": "string"
+    }]
   }
 }

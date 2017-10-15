@@ -10,7 +10,14 @@ export const getTasks = () => {
 };
 
 export const addTask = ({name}) => {
-  return axios.post(tasksUrl, {name: name})
+  const task = {
+    name: name,
+    history: [{
+      from: '',
+      to: name,
+    }]
+  };
+  return axios.post(tasksUrl, task)
     .then((response) => response.data)
     .catch((error) => error.data);
 };
@@ -22,7 +29,9 @@ export const removeTask = ({taskId}) => {
 };
 
 export const updateTask = (action) => {
-  return axios.patch(`${tasksUrl}/${action.id}`, R.omit(['id', 'type'], action))
+  const task = R.omit(['id', 'type', 'newName'], action);
+  task.history.push({from: action.name, to: action.newName});
+  return axios.patch(`${tasksUrl}/${action.id}`, task)
     .then((response) => response.data)
     .catch((error) => error.data);
 };

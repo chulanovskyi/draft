@@ -1,27 +1,12 @@
 import React, {Component} from 'react';
-import Modal from 'react-modal';
+import TodoItem from './todoItem/todoItem';
 import './todoList.css';
-
-const taskModalStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  }
-};
 
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       taskName: '',
-      show: false,
-      editedTaskId: '',
-      editedName: '',
-      showModal: false,
     }
   }
 
@@ -32,39 +17,6 @@ class TodoList extends Component {
         taskName: '',
       })
     }
-  };
-
-  handleRemoveTask = (taskId) => {
-    this.setState({showModal: true});
-    // this.props.removeTask(taskId);
-  };
-
-  handleToggle = (task) => {
-    this.props.updateTask({id: task.id, isActive: !task.isActive});
-  };
-
-  toggleEditIcon = (taskInd) => {
-    this.refs[`editTask${taskInd}`].classList.toggle('hidden');
-  };
-
-  showEditTask = (task) => {
-    this.setState({
-      show: true,
-      editedName: task.name,
-      editedTaskId: task.id
-    })
-  };
-
-  editTask = (e, task) => {
-    if (e.key === 'Enter') {
-      this.setState({
-        show: false,
-      });
-      this.props.updateTask({id: task.id, name: e.target.value});
-    }
-    this.setState({
-      editedTask: e.target.value,
-    })
   };
 
   render() {
@@ -104,49 +56,13 @@ class TodoList extends Component {
               return;
             }
 
-            return (
-              <li key={ind} className='todoList__item'
-                  onMouseEnter={() => this.toggleEditIcon(ind)}
-                  onMouseLeave={() => this.toggleEditIcon(ind)}
-              >
-                <i
-                  onClick={() => this.handleRemoveTask(task.id)}
-                  className='fa fa-times item__removeTask'
-                />
-
-                {this.state.show && this.state.editedTaskId === task.id ?
-                  <input className='item__editInput'
-                         defaultValue={this.state.editedName}
-                         onKeyPress={(e) => this.editTask(e, task)}
-                  />
-                  :
-                  <span
-                    onClick={() => this.handleToggle(task)}
-                    className={task.isActive ? 'item__name' : 'item__name disabled'}
-                  >
-                  {task.name}
-                  </span>
-                }
-                <i ref={`editTask${ind}`}
-                   className='fa fa-pencil item__editTask hidden'
-                   aria-hidden="true"
-                   onClick={() => this.showEditTask(task)}
-                />
-              </li>
-            )
+            return <TodoItem key={ind}
+                             task={task}
+                             updateTask={this.props.updateTask}
+                             removeTask={this.props.removeTask}
+            />
           })}
         </ul>
-        <Modal
-          isOpen={this.state.showModal}
-          onRequestClose={() => this.setState({showModal: false})}
-          style={taskModalStyles}
-        >
-          <div className='modal__header'>Delete task?</div>
-          <div className='modal__buttons'>
-            <span className='buttons__item'>Yes</span>
-            <span className='buttons__item'>No</span>
-          </div>
-        </Modal>
       </div>
     );
   }

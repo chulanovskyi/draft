@@ -7,6 +7,7 @@ class TodoList extends Component {
     super(props);
     this.state = {
       taskName: '',
+      expanded: false,
     }
   }
 
@@ -17,6 +18,10 @@ class TodoList extends Component {
         taskName: '',
       })
     }
+  };
+
+  expandAll = () => {
+    this.setState({expanded: !this.state.expanded})
   };
 
   render() {
@@ -48,6 +53,9 @@ class TodoList extends Component {
                 }}
           > Done</span>
         </div>
+        <span className='filterSelector__item item__expand'
+              onClick={() => {this.expandAll()}}
+        >{this.state.expanded ? 'Collapse' : 'Expand'}</span>
         <ul className='container__todoList'>
           {this.props.tasks.map((task, ind) => {
             if (this.props.show !== 'all' &&
@@ -59,6 +67,7 @@ class TodoList extends Component {
                              task={task}
                              updateTask={this.props.updateTask}
                              removeTask={this.props.removeTask}
+                             expanded={this.state.expanded}
             />
           })}
         </ul>

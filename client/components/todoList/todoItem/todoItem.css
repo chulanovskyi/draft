@@ -31,8 +31,8 @@
 
 .item__showHistory {
   position: absolute;
-  font-size: 15px;
-  bottom: 0;
+  font-size: 17px;
+  top: 60px;
   left: 5px;
   cursor: pointer;
 }
@@ -67,12 +67,73 @@
   background: none;
 }
 
-.history {
-  height: 0;
+.item__history {
+  padding: 10px;
+  height: auto;
   overflow: hidden;
-  transition: all .2s ease-in;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease-out;
+}
+
+.history__change {
+  background-color: rgba(200, 200, 200, 0.5);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  /*position: relative;*/
+}
+
+.change__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.change__date {
+  margin-left: 7px;
+  margin-right: 10px;
+  padding-top: 4px;
+  font-size: 14px;
+}
+
+.change__prop {
+  align-self: flex-end;
+  color: rgba(10, 90, 255, 1);
+}
+
+
+.change__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+}
+
+.change__from {
+  flex-basis: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.change__arrow {
+  font-size: 13px;
+}
+
+.change__to {
+  flex-basis: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .disabled {
   text-decoration: line-through;
+}
+
+.hidden {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
 }

@@ -33,7 +33,6 @@ export function removeTask(taskId) {
 }
 
 export function updateTask({task, newName, newStatus}) {
-  console.log(task);
   return {
     type: UPDATE_TASK,
     id: task.id,

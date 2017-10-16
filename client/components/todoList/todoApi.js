@@ -36,7 +36,8 @@ export const updateTask = (action) => {
   if (action.newName) {
     task.history.push({prop: NAME_PROP, from: action.name, to: action.newName});
     task.name = action.newName;
-  } else {
+  }
+  if (action.newStatus !== undefined) {
     task.history.push({prop: STATUS_PROP, from: action.isActive, to: action.newStatus});
     task.isActive = action.newStatus;
   }

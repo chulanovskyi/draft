@@ -28,7 +28,7 @@
   list-style: none;
   padding-left: 0;
   align-self: center;
-  height: 75vh;
+  height: 64vh;
   min-width: 310px;
   overflow-y: auto;
 }
@@ -50,6 +50,10 @@
 
 .filterSelector__item:hover {
   transform: scale(1.1);
+}
+
+.item__expand {
+  margin: 15px auto 0;
 }
 
 .errorHandler {

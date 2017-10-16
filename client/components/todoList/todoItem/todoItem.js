@@ -2,6 +2,15 @@ import React, {Component} from 'react';
 import Modal from 'react-modal';
 import './todoItem.css';
 
+const propNames = {
+  'name': 'Text',
+  'isActive': 'Status',
+  'condition': {
+    'true': 'active',
+    'false': 'done',
+  }
+};
+
 const taskModalStyles = {
   content: {
     top: '50%',
@@ -16,6 +25,7 @@ const taskModalStyles = {
   }
 };
 
+
 class TodoItem extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +35,12 @@ class TodoItem extends Component {
       editedName: '',
       showModal: false,
       showHistory: false,
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.expanded !== this.state.showHistory) {
+      this.setState({showHistory: props.expanded})
     }
   }
 
@@ -64,9 +80,8 @@ class TodoItem extends Component {
     this.props.removeTask(taskId);
   };
 
-  showHistory = (task) => {
-    console.log('show history');
-    console.log(task.history);
+  showHistory = () => {
+    this.setState({showHistory: !this.state.showHistory});
   };
 
   render() {
@@ -79,6 +94,7 @@ class TodoItem extends Component {
                  onKeyPress={(e) => this.editTask(e, task)}/>
           :
           <span
+            title={task.name}
             onClick={() => this.handleToggle(task)}
             className={task.isActive ? 'item__name' : 'item__name disabled'}>
               {task.name}
@@ -86,17 +102,40 @@ class TodoItem extends Component {
         }
 
         <i className='fa fa-pencil item__editTask'
-           aria-hidden="true"
            onClick={() => this.showEditTask(task)}/>
-
         <i onClick={() => this.openModal()}
            className='fa fa-times item__removeTask'/>
-
         <i className='fa fa-caret-down item__showHistory'
            onClick={() => this.showHistory(task)}/>
-        <div className='item__history'>
-          {JSON.stringify(task.history, null, 1)}
+
+        <div className={this.state.showHistory ? 'item__history' : 'hidden'}>
+          {task.history.map((change, ind) => {
+            const formatDate = new Date(change.changedAt).toLocaleString('ua-UA', {hour12: false});
+            const isStatusProp = change.prop === 'isActive';
+            return (
+              <div className='history__change' key={ind}>
+                <div className='change__header'>
+                  <span className='change__date'>{formatDate}</span>
+                  <span className='change__prop'>{propNames[change.prop]}</span>
+                </div>
+                <div className='change__body'>
+                  <span className='change__from' title={isStatusProp ? null : change.from}>
+                    {isStatusProp ?
+                      propNames.condition[change.from] :
+                      change.from}
+                    </span>
+                  <i className='fa fa-arrow-right change__arrow'/>
+                  <span className='change__to' title={isStatusProp ? null : change.to}>
+                    {isStatusProp ?
+                      propNames.condition[change.to] :
+                      change.to}
+                  </span>
+                </div>
+              </div>
+            )
+          })}
         </div>
+
         {this.state.showModal &&
         <Modal
           isOpen={this.state.showModal}

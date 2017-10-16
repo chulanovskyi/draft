@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as todoActions from '../components/todoList/todoActions';
 import TodoList from '../components/todoList/todoList';
 import ErrorHandler from '../components/errorHandlers/commonError';
+import Plot from '../components/plot/plot';
 import './draftApp.css'
 
 class DraftApp extends Component {
@@ -18,6 +19,9 @@ class DraftApp extends Component {
   render() {
     return (
       <ErrorHandler>
+        <Plot
+          tasks={this.props.tasks}
+        />
         <TodoList
           tasks={this.props.tasks}
           show={this.props.show}

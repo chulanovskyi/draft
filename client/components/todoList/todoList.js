@@ -48,7 +48,6 @@ class TodoList extends Component {
                 }}
           > Done</span>
         </div>
-
         <ul className='container__todoList'>
           {this.props.tasks.map((task, ind) => {
             if (this.props.show !== 'all' &&

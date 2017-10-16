@@ -16,6 +16,7 @@
   font-family: 'Open Sans', sans-serif;
   padding: 10px;
   margin-top: 20px;
+  margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
@@ -26,6 +27,14 @@
 
 .item__name:hover {
   background: rgba(30, 30, 255, 0.1);
+}
+
+.item__showHistory {
+  position: absolute;
+  font-size: 15px;
+  bottom: 0;
+  left: 5px;
+  cursor: pointer;
 }
 
 .item__editTask {
@@ -50,11 +59,18 @@
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 15px;
   padding: 10px;
   width: 90%;
   color: #FFF;
   font-size: 18px;
   background: none;
+}
+
+.history {
+  height: 0;
+  overflow: hidden;
+  transition: all .2s ease-in;
 }
 
 .disabled {

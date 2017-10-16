@@ -34,9 +34,9 @@
     "history": [{
       "changedAt": {
         "type": "date",
-        "required": true,
         "default": "$now"
       },
+      "prop": "string",
       "from": "string",
       "to": "string"
     }]

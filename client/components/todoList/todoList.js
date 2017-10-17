@@ -53,9 +53,9 @@ class TodoList extends Component {
                 }}
           > Done</span>
         </div>
-        <span className='filterSelector__item item__expand'
-              onClick={() => {this.expandAll()}}
-        >{this.state.expanded ? 'Collapse' : 'Expand'}</span>
+        {/*<span className='filterSelector__item item__expand'*/}
+              {/*onClick={() => {this.expandAll()}}*/}
+        {/*>{this.state.expanded ? 'Collapse' : 'Expand'}</span>*/}
         <ul className='container__todoList'>
           {this.props.tasks.map((task, ind) => {
             if (this.props.show !== 'all' &&

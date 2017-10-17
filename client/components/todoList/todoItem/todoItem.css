@@ -12,6 +12,7 @@
 
 .item__nameContainer {
   position: relative;
+  margin: 0 5px 0;
 }
 
 .nameContainer__name {

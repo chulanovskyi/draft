@@ -104,6 +104,12 @@ class TodoItem extends Component {
           })}
         </div>
 
+        <i className={this.state.showHistory ?
+          'fa fa-long-arrow-up item__closeHistory' :
+          'fa fa-long-arrow-up item__closeHistory displayNone'}
+           onClick={() => this.showHistory()}
+        />
+
         {this.state.showModal &&
           <ConfirmModal showModal={this.state.showModal}
                         closeModal={() => this.setState({showModal: false})}

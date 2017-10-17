@@ -35,23 +35,21 @@ class TodoList extends Component {
           onChange={(e) => this.setState({taskName: e.target.value})}
           className='container__inputTask'
           onKeyPress={this.handleAddTask}
+          placeholder='Add task'
         />
         <div className='container__filterSelector'>
-          <span className='filterSelector__item'
-                onClick={() => {
-                  this.props.filterTasks('all')
-                }}
-          > All </span>
-          <span className='filterSelector__item'
-                onClick={() => {
-                  this.props.filterTasks(true)
-                }}
-          > Active</span>
-          <span className='filterSelector__item'
-                onClick={() => {
-                  this.props.filterTasks(false)
-                }}
-          > Done</span>
+          <span className={this.props.show === 'all' ? FILTER_ACTIVE : FILTER}
+                onClick={() => this.props.filterTasks('all')}>
+            All
+          </span>
+          <span className={this.props.show === true ? FILTER_ACTIVE : FILTER}
+                onClick={() => this.props.filterTasks(true)}>
+            Active
+          </span>
+          <span className={this.props.show === false ? FILTER_ACTIVE : FILTER}
+                onClick={() => this.props.filterTasks(false)}>
+            Done
+          </span>
         </div>
         {/*<span className='filterSelector__item item__expand'*/}
               {/*onClick={() => {this.expandAll()}}*/}
@@ -75,5 +73,8 @@ class TodoList extends Component {
     );
   }
 }
+
+const FILTER        = 'filterSelector__item';
+const FILTER_ACTIVE = 'filterSelector__item active';
 
 export default TodoList;

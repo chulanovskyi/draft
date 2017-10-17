@@ -18,7 +18,7 @@ class HistoryItem extends Component {
 
   render() {
     const changes = this.props.changes;
-    const formatDate = new Date(changes.changedAt).toLocaleString('ua-UA', {hour12: false});
+    const formatDate = new Date(changes.changedAt).toLocaleString('ua-UA', dateOptions);
     const isStatusProp = changes.prop === 'isActive';
     return (
       <div className='history__change'>
@@ -26,8 +26,8 @@ class HistoryItem extends Component {
            onClick={() => this.setState({showModal: true})}
         />
         <div className='change__header'>
-          <span className='change__date'>{formatDate}</span>
           <span className='change__prop'>{propNames[changes.prop]}</span>
+          <span className='change__date'>{formatDate}</span>
         </div>
         <div className='change__body'>
           <span className='change__from' title={isStatusProp ? null : changes.from}>
@@ -42,6 +42,7 @@ class HistoryItem extends Component {
               changes.to}
           </span>
         </div>
+
         {this.state.showModal &&
           <ConfirmModal showModal={this.state.showModal}
                         closeModal={() => this.setState({showModal: false})}
@@ -61,6 +62,16 @@ const propNames = {
     'true': 'active',
     'false': 'done',
   }
+};
+
+const dateOptions = {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false,
 };
 
 export default HistoryItem;

@@ -10,22 +10,20 @@
 .change__header {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin: 5px 5px 0;
+  justify-content: space-between;
+  margin: 5px 5px 5px;
+}
+
+.change__prop {
+  margin-left: 10px;
+  color: rgb(10, 100, 255);
 }
 
 .change__date {
-  margin-left: 7px;
   margin-right: 25px;
   padding-top: 4px;
   font-size: 14px;
 }
-
-.change__prop {
-  align-self: flex-end;
-  color: rgba(10, 90, 255, 1);
-}
-
 
 .change__body {
   display: flex;
@@ -33,6 +31,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 5px;
+  margin-bottom: 5px;
 }
 
 .change__from {

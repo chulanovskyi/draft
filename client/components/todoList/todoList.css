@@ -22,6 +22,7 @@
   width: 80%;
   border-radius: 5px;
   margin-bottom: 15px;
+  padding: 5px 0 5px 5px;
 }
 
 .container__inputTask:focus{
@@ -43,8 +44,10 @@
 }
 
 .filterSelector__item {
+  box-sizing: border-box;
+  font-size: 20px;
   padding: 5px;
-  width: 60px;
+  width: 70px;
   border-radius: 10px;
   background: rgba(10, 120, 255, 1);
   color: #FFF;
@@ -69,4 +72,8 @@
 
 .hidden {
   opacity: 0;
+}
+
+.active {
+  background-color: rgba(50, 170, 255, 1);
 }

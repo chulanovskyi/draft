@@ -1,5 +1,11 @@
-.container__plot {
+.plot__history {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 95px;
+  left: 25px;
+}
+
+.plot__text {
+  position: absolute;
+  top: 95px;
+  right: 25px;
 }

@@ -32,6 +32,13 @@
       }
     },
     "history": [{
+      "id": {
+        "type": "Number",
+        "index": true,
+        "required": true,
+        "id": true,
+        "generated": true
+      },
       "changedAt": {
         "type": "date",
         "default": "$now"

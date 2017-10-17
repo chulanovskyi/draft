@@ -6,7 +6,7 @@
   justify-content: center;
   text-align: center;
   margin: 0 auto;
-  max-width: 360px;
+  max-width: 460px;
 }
 
 .container__header {
@@ -15,7 +15,7 @@
 
 .container__inputTask {
   align-self: center;
-  width: 100%;
+  width: 80%;
   border-radius: 5px;
   margin-bottom: 15px;
 }
@@ -29,7 +29,7 @@
   padding-left: 0;
   align-self: center;
   height: 64vh;
-  min-width: 310px;
+  max-width: 410px;
   overflow-y: auto;
 }
 
@@ -65,23 +65,4 @@
 
 .hidden {
   opacity: 0;
-}
-
-.modal__header {
-  text-align: center;
-  margin-bottom: 7px;
-}
-
-.modal__buttons {
-  display: flex;
-  justify-content: space-around;
-}
-
-.buttons__item {
-  background-color: rgba(10, 120, 255, 1);
-  padding: 5px 10px;
-  margin: 0 2px;
-  border-radius: 5px;
-  color: #FFF;
-  cursor: pointer;
 }

@@ -5,14 +5,18 @@
   display: inline-block;
   position: relative;
   width: 95%;
-  max-width: 360px;
-  min-width: 342px;
+  min-width: 390px;
   border-radius: 5px;
   margin: 5px;
 }
 
-.item__name {
+.item__nameContainer {
+  position: relative;
+}
+
+.nameContainer__name {
   display: inline-block;
+  text-align: left;
   font-family: 'Open Sans', sans-serif;
   padding: 10px;
   margin-top: 20px;
@@ -21,27 +25,27 @@
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 300px;
+  width: 80%;
   flex-shrink: 1;
 }
 
-.item__name:hover {
+.nameContainer__name:hover {
   background: rgba(30, 30, 255, 0.1);
 }
 
-.item__showHistory {
+.nameContainer__status {
   position: absolute;
-  font-size: 17px;
-  top: 60px;
+  font-size: 20px;
+  top: 40%;
   left: 5px;
   cursor: pointer;
 }
 
 .item__editTask {
   position: absolute;
-  font-size: 15px;
-  top: 2px;
-  left: 5px;
+  font-size: 20px;
+  top: 40%;
+  right: 5px;
   cursor: pointer;
 }
 
@@ -57,7 +61,7 @@
 
 .item__editInput{
   font-family: 'Open Sans', sans-serif;
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
   margin-bottom: 15px;
   padding: 10px;
@@ -73,59 +77,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   transition: all 0.3s ease-out;
-}
-
-.history__change {
-  background-color: rgba(200, 200, 200, 0.5);
-  margin-bottom: 5px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  /*position: relative;*/
-}
-
-.change__header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.change__date {
-  margin-left: 7px;
-  margin-right: 10px;
-  padding-top: 4px;
-  font-size: 14px;
-}
-
-.change__prop {
-  align-self: flex-end;
-  color: rgba(10, 90, 255, 1);
-}
-
-
-.change__body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5px;
-}
-
-.change__from {
-  flex-basis: 45%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.change__arrow {
-  font-size: 13px;
-}
-
-.change__to {
-  flex-basis: 45%;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .disabled {

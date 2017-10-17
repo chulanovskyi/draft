@@ -25,7 +25,7 @@ class Plot extends Component {
   render() {
     return (
       <div className='container__plot'>
-        <svg width={200} height={600} className='plot'/>
+        <svg width={300} height={700} className='plot'/>
       </div>
     )
   }

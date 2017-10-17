@@ -1,0 +1,61 @@
+.history__change {
+  background-color: rgba(200, 200, 200, 0.5);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.change__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.change__date {
+  margin-left: 7px;
+  margin-right: 25px;
+  padding-top: 4px;
+  font-size: 14px;
+}
+
+.change__prop {
+  align-self: flex-end;
+  color: rgba(10, 90, 255, 1);
+}
+
+
+.change__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+}
+
+.change__from {
+  flex-basis: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.change__arrow {
+  font-size: 13px;
+}
+
+.change__to {
+  flex-basis: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.change__remove {
+  position: absolute;
+  font-size: 15px;
+  color: #900;
+  cursor: pointer;
+  top: 0;
+  right: 5px;
+}

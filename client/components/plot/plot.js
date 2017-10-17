@@ -18,8 +18,7 @@ class Plot extends Component {
       .attr('width', '350px')
       .attr('height', '700px')
       .style('border', '1px solid #FFF')
-      .style('border-radius', '5px')
-    ;
+      .style('border-radius', '5px');
 
     plot.append('text')
       .attr('x', '33%')
@@ -33,8 +32,7 @@ class Plot extends Component {
       .text(this.props.plotHeader);
 
     const gWrap = plot.append('g')
-      .attr('transform', 'translate(0, 40)')
-    ;
+      .attr('transform', 'translate(0, 40)');
 
     const itemGroup = gWrap.selectAll('g')
       .data(this.props.tasks);
@@ -42,8 +40,7 @@ class Plot extends Component {
     const newItemGroup = itemGroup
       .enter()
       .append('g')
-      .attr('transform', (t, i) => `translate(0, ${i*barHeight})`)
-    ;
+      .attr('transform', (t, i) => `translate(0, ${i*barHeight})`);
 
     newItemGroup
       .append('rect')

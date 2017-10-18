@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TodoItem from './todoItem/todoItem';
+import OptionMenu from "./optionMenu/optionMenu";
 import './todoList.css';
 
 class TodoList extends Component {
@@ -7,9 +8,8 @@ class TodoList extends Component {
     super(props);
     this.state = {
       taskName: '',
-      expanded: false,
     }
-  }
+  };
 
   handleAddTask = (e) => {
     if (e.key === 'Enter') {
@@ -18,10 +18,6 @@ class TodoList extends Component {
         taskName: '',
       })
     }
-  };
-
-  expandAll = () => {
-    this.setState({expanded: !this.state.expanded})
   };
 
   render() {
@@ -37,23 +33,21 @@ class TodoList extends Component {
           onKeyPress={this.handleAddTask}
           placeholder='Add task'
         />
-        <div className='container__filterSelector'>
-          <span className={this.props.show === 'all' ? FILTER_ACTIVE : FILTER}
+        <div className='container__isActiveSelector'>
+          <span className={this.props.show === 'all' ? BUTTON_ACTIVE : BUTTON}
                 onClick={() => this.props.filterTasks('all')}>
             All
           </span>
-          <span className={this.props.show === true ? FILTER_ACTIVE : FILTER}
+          <span className={this.props.show === true ? BUTTON_ACTIVE : BUTTON}
                 onClick={() => this.props.filterTasks(true)}>
             Active
           </span>
-          <span className={this.props.show === false ? FILTER_ACTIVE : FILTER}
+          <span className={this.props.show === false ? BUTTON_ACTIVE : BUTTON}
                 onClick={() => this.props.filterTasks(false)}>
             Done
           </span>
         </div>
-        {/*<span className='filterSelector__item item__expand'*/}
-              {/*onClick={() => {this.expandAll()}}*/}
-        {/*>{this.state.expanded ? 'Collapse' : 'Expand'}</span>*/}
+        <OptionMenu/>
         <ul className='container__todoList'>
           {this.props.tasks.map((task, ind) => {
             if (this.props.show !== 'all' &&
@@ -64,9 +58,7 @@ class TodoList extends Component {
             return <TodoItem key={ind}
                              task={task}
                              updateTask={this.props.updateTask}
-                             removeTask={this.props.removeTask}
-                             expanded={this.state.expanded}
-            />
+                             removeTask={this.props.removeTask}/>
           })}
         </ul>
       </div>
@@ -74,7 +66,8 @@ class TodoList extends Component {
   }
 }
 
-const FILTER        = 'filterSelector__item';
-const FILTER_ACTIVE = 'filterSelector__item active';
+const BUTTON        = 'isActiveSelector__item';
+const BUTTON_ACTIVE = 'isActiveSelector__item active';
+
 
 export default TodoList;

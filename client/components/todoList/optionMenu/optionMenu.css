@@ -1,0 +1,51 @@
+.container__options {
+  margin-left: 35px;
+  width: 85%;
+  text-align: left;
+  position: relative;
+}
+
+.options__caret {
+  color: #FFF;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.options__caret:before {
+  margin-right: 5px;
+}
+
+.options__optionList {
+  display: flex;
+  position: absolute;
+  width: 300px;
+  top: 30px;
+  left: 0;
+  background-color: rgba(200, 200, 200, 1);
+  border: 1px solid rgba(0,0,0, 0.5);
+  border-radius: 5px;
+  z-index: 1;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.optionList__item {
+  display: flex;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.item__optionLabel {
+  width: 50px;
+}
+
+.item__wrapApply {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.item__apply {
+  padding: 3px;
+}

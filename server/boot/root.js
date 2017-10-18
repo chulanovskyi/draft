@@ -15,9 +15,14 @@ module.exports = function(app) {
 
   router.delete('/api/tasks', (req, res) => {
     console.log('REQUEST TO DELETE ALL TASKS');
-    app.models.task.destroyAll((err, info) => {
-      res.send(err || info);
-    });
+    if (req.headers.confirm === 'absolutely') {
+      app.models.task.destroyAll((err, info) => {
+        res.send(err || info);
+      });
+    } else {
+      console.log('RESTRICTED');
+      res.send('Restricted');
+    }
   });
 };
 

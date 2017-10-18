@@ -1,3 +1,36 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+* {
+  font-family: Lato, sans-serif;
+}
+
 .body__app {
   background: url("../public/image/blured.jpg") no-repeat;
+}
+
+/* Helpers */
+.disabled {
+  text-decoration: line-through;
+}
+
+.hidden {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+}
+
+.displayNone {
+  display: none;
+}
+
+.active {
+  background-color: rgba(50, 170, 255, 1);
+}
+
+.scaleSmaller {
+  transform: scale(0.7);
+}
+
+.scaleSmaller:hover {
+  transform: scale(0.75);
 }

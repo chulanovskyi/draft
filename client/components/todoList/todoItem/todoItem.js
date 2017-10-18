@@ -16,12 +16,6 @@ class TodoItem extends Component {
     }
   }
 
-  componentWillReceiveProps(props) {
-    // if (props.expanded !== this.state.showHistory) {
-    //   this.setState({showHistory: props.expanded})
-    // }
-  }
-
   handleToggle = (task) => {
     this.props.updateTask({task, newStatus: !task.isActive});
   };

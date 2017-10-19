@@ -45,3 +45,19 @@ export const updateTask = (action) => {
     .then((response) => response.data)
     .catch((error) => error.data);
 };
+
+export const applyOptions = ({options}) => {
+  const matchCase = options.matchCase ? 'like' : 'ilike';
+  const exactMatch = options.exactMatch ? options.query : `${options.query}%`;
+  const formatQuery = {
+    where: {
+      name: {
+        [matchCase]: exactMatch
+      }
+    },
+    order: `name ${options.order}`
+  };
+  return axios.get(tasksUrl, {params: {filter: JSON.stringify(formatQuery)}})
+    .then((response) => response.data)
+    .catch((error) => error.data);
+};

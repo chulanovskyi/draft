@@ -1,5 +1,8 @@
 import * as R from 'ramda';
-import {GET_TASKS_DONE, ADD_TASK_DONE, REMOVE_TASK_DONE, UPDATE_TASK_DONE, FILTER_TASKS} from './todoActions';
+import {
+  GET_TASKS_DONE, ADD_TASK_DONE, REMOVE_TASK_DONE, UPDATE_TASK_DONE,
+  FILTER_TASKS, APPLY_OPTIONS_DONE,
+} from './todoActions';
 
 const initialState = {
   tasks: [],
@@ -30,6 +33,9 @@ function todoReducer(state = initialState, action) {
 
   case FILTER_TASKS:
     return {...state, show: action.isActive};
+
+  case APPLY_OPTIONS_DONE:
+    return {...state, tasks: action.applied};
 
   default:
     return state;

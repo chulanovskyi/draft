@@ -11,6 +11,10 @@ export const UPDATE_TASK = 'UPDATE_TASK';
 export const UPDATE_TASK_DONE = 'UPDATE_TASK_DONE';
 export const UPDATE_TASK_ERROR = 'UPDATE_TASK_ERROR';
 export const FILTER_TASKS = 'FILTER_TASKS';
+export const APPLY_OPTIONS = 'APPLY_OPTIONS';
+export const APPLY_OPTIONS_DONE = 'APPLY_OPTIONS_DONE';
+export const APPLY_OPTIONS_ERROR = 'APPLY_OPTIONS_ERROR';
+export const CLEAR_OPTIONS = 'CLEAR_OPTIONS';
 
 export function getTasks() {
   return {
@@ -48,5 +52,18 @@ export function filterTasks(isActive) {
   return {
     type: FILTER_TASKS,
     isActive: isActive,
+  }
+}
+
+export function applyOptions(options) {
+  return {
+    type: APPLY_OPTIONS,
+    options: options
+  }
+}
+
+export function clearOptions() {
+  return {
+    type: CLEAR_OPTIONS
   }
 }

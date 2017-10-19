@@ -26,7 +26,7 @@
   border-radius: 5px;
   z-index: 1;
   opacity: 1;
-  transition: all 0.5s ease-out;
+  /*transition: all 0.5s ease-out;*/
   flex-direction: column;
   justify-content: space-around;
 }
@@ -39,6 +39,28 @@
 
 .item__optionLabel {
   width: 50px;
+}
+
+.item__sortSelector {
+  border-radius: 10px;
+}
+
+.item__sortSelector:focus {
+  outline: none;
+}
+
+.item__filterQuery {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.filterQuery__matchCase {
+  margin-top: 5px;
+}
+
+.filterQuery__button {
+  margin-right: 5px;
 }
 
 .item__wrapApply {

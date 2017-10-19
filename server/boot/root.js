@@ -28,4 +28,9 @@ module.exports = function(app) {
 
 /*
   http://localhost:3000/api/tasks?filter={%22where%22:{%22name%22:{%22like%22:%22others%22,%22options%22:%22i%22}}}
+
+  http://localhost:3000/api/tasks?filter={%22where%22:{%22name%22:{%22like%22:%22f%25%22}}}
+  %25 === % (percent sign in url)
+
+  http://localhost:3000/api/tasks?filter={%22where%22:{%22name%22:{%22like%22:%22f%25%22,%22options%22:{%22case%22:%20%22i%22}}},%22order%22:%22name%20DESC%22}
  */

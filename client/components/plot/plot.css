@@ -1,11 +1,11 @@
 .plot__history {
   position: absolute;
   top: 25px;
-  left: 25px;
+  right: 25px;
 }
 
 .plot__text {
   position: absolute;
   top: 25px;
-  right: 25px;
+  left: 25px;
 }

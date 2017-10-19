@@ -47,7 +47,9 @@ class TodoList extends Component {
             Done
           </span>
         </div>
-        <OptionMenu/>
+        <OptionMenu applyOptions={this.props.applyOptions}
+                    clearOptions={this.props.clearOptions}
+        />
         <ul className='container__todoList'>
           {this.props.tasks.map((task, ind) => {
             if (this.props.show !== 'all' &&

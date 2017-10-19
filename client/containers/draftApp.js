@@ -19,11 +19,11 @@ class DraftApp extends Component {
   render() {
     return (
       <ErrorHandler>
-        <div className='plot__history'>
+        <div className='plot__text'>
           <Plot
             tasks={this.props.tasks}
-            baseProp='history'
-            plotHeader='History chart'
+            baseProp='name'
+            plotHeader='Text chart'
           />
         </div>
         <TodoList
@@ -33,12 +33,14 @@ class DraftApp extends Component {
           removeTask={this.props.removeTask}
           updateTask={this.props.updateTask}
           filterTasks={this.props.filterTasks}
+          applyOptions={this.props.applyOptions}
+          clearOptions={this.props.clearOptions}
         />
-        <div className='plot__text'>
+        <div className='plot__history'>
           <Plot
             tasks={this.props.tasks}
-            baseProp='name'
-            plotHeader='Text chart'
+            baseProp='history'
+            plotHeader='History chart'
           />
         </div>
       </ErrorHandler>

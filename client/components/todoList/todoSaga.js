@@ -5,6 +5,8 @@ import {
   ADD_TASK, ADD_TASK_DONE, ADD_TASK_ERROR,
   REMOVE_TASK, REMOVE_TASK_DONE, REMOVE_TASK_ERROR,
   UPDATE_TASK, UPDATE_TASK_DONE, UPDATE_TASK_ERROR,
+  APPLY_OPTIONS, APPLY_OPTIONS_DONE, APPLY_OPTIONS_ERROR,
+  CLEAR_OPTIONS,
 } from "./todoActions";
 
 function* getTodos(action) {
@@ -45,11 +47,21 @@ function* updateTodo(action) {
   }
 }
 
+function* applyTodoOptions(action) {
+  try {
+    const applied = yield call(todoApi.applyOptions, action);
+    yield put({type: APPLY_OPTIONS_DONE, applied});
+  } catch (e) {
+    yield put({type: APPLY_OPTIONS_ERROR, message: e.message});
+  }
+}
+
 function* todoSaga() {
-  yield takeEvery(GET_TASKS, getTodos);
+  yield takeEvery([GET_TASKS, CLEAR_OPTIONS], getTodos);
   yield takeEvery(ADD_TASK, addTodo);
   yield takeEvery(REMOVE_TASK, removeTodo);
   yield takeEvery(UPDATE_TASK, updateTodo);
+  yield takeEvery(APPLY_OPTIONS, applyTodoOptions);
 }
 
 export default todoSaga;

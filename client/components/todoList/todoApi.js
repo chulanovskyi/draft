@@ -47,17 +47,7 @@ export const updateTask = (action) => {
 };
 
 export const applyOptions = ({options}) => {
-  const matchCase = options.matchCase ? 'like' : 'ilike';
-  const exactMatch = options.exactMatch ? options.query : `${options.query}%`;
-  const formatQuery = {
-    where: {
-      name: {
-        [matchCase]: exactMatch
-      }
-    },
-    order: `name ${options.order}`
-  };
-  return axios.get(tasksUrl, {params: {filter: JSON.stringify(formatQuery)}})
+  return axios.get(`${tasksUrl}/filter`, {params: options})
     .then((response) => response.data)
     .catch((error) => error.data);
 };

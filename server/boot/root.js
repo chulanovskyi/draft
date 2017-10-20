@@ -1,29 +1,11 @@
 'use strict';
-const path = require('path');
-const taskModel = require('../../common/models/task.json');
+const taskSchema = require('../../common/models/task.json');
 
 module.exports = function(app) {
-  const router = app.loopback.Router();
-  const postgres = app.dataSources.modelConfig;
-  postgres.createModel(taskModel.name, taskModel.properties, taskModel.options);
-  postgres.autoupdate(taskModel.name);
+  const db = app.dataSources.modelConfig;
 
-  router.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../client/index.html'));
-  });
-  app.use(router);
-
-  router.delete('/api/tasks', (req, res) => {
-    console.log('REQUEST TO DELETE ALL TASKS');
-    if (req.headers.confirm === 'absolutely') {
-      app.models.task.destroyAll((err, info) => {
-        res.send(err || info);
-      });
-    } else {
-      console.log('RESTRICTED');
-      res.send('Restricted');
-    }
-  });
+  db.createModel(taskSchema.name, taskSchema.properties, taskSchema.options);
+  db.autoupdate(taskSchema.name);
 };
 
 /*
@@ -32,5 +14,4 @@ module.exports = function(app) {
   http://localhost:3000/api/tasks?filter={%22where%22:{%22name%22:{%22like%22:%22f%25%22}}}
   %25 === % (percent sign in url)
 
-  http://localhost:3000/api/tasks?filter={%22where%22:{%22name%22:{%22like%22:%22f%25%22,%22options%22:{%22case%22:%20%22i%22}}},%22order%22:%22name%20DESC%22}
  */

@@ -12,6 +12,11 @@ module.exports = function(app) {
     res.sendFile(path.resolve(__dirname, '../../client/index.html'));
   });
 
+  taskModel.observe('before save', function checkCensoredWords(ctx, next) {
+    console.log(ctx);
+    next();
+  });
+
   router.delete(apiTasks, (req, res) => {
     console.log('REQUEST TO DELETE ALL TASKS');
     if (req.headers.confirm === CONFIRM) {

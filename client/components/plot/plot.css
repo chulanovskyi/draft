@@ -2,10 +2,35 @@
   position: absolute;
   top: 25px;
   right: 25px;
+  border: 1px solid #FFF;
+  border-radius: 5px;
 }
 
 .plot__text {
   position: absolute;
   top: 25px;
   left: 25px;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+}
+
+@media all and (max-width: 1200px){
+  .plot__history, .plot__text {
+    top: 0;
+    max-height: 25px;
+    overflow: hidden;
+    border: 0;
+  }
+
+  .plot__history:hover, .plot__text:hover {
+    z-index: 2;
+    background-color: rgba(133, 133, 133, 1);
+    max-height: 100%;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .plot__history, .plot__text {
+    display: none;
+  }
 }

@@ -16,9 +16,9 @@ class Plot extends Component {
 
     const plot = d3.select(svg)
       .attr('width', '350px')
-      .attr('height', '600px')
-      .style('border', '1px solid #FFF')
-      .style('border-radius', '5px');
+      .attr('height', '600px');
+      // .style('border', '1px solid #FFF')
+      // .style('border-radius', '5px');
 
     plot.append('text')
       .attr('x', '33%')

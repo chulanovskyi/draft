@@ -7,7 +7,7 @@ import ErrorHandler from '../components/errorHandlers/commonError';
 import Plot from '../components/plot/plot';
 import './draftApp.css'
 
-class DraftApp extends Component {
+export class DraftApp extends Component {
   constructor(props) {
     super(props);
   }

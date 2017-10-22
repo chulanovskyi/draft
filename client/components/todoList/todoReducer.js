@@ -4,8 +4,18 @@ import {
   FILTER_TASKS, APPLY_OPTIONS_DONE,
 } from './todoActions';
 
-const initialState = {
-  tasks: [],
+export const initialState = {
+  tasks: [{
+    name: 'read book',
+    isActive: true,
+    id: 0,
+    history: [{
+      changedAt: "2017-10-19T12:39:10.863Z",
+      prop: "name",
+      from: "",
+      to: "read book"
+    }],
+  }],
   show: 'all',
 };
 

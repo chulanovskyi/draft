@@ -9,7 +9,7 @@ module.exports = function(app) {
   const dbConnector = taskModel.dataSource.settings.connector;
 
   router.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../client/index.html'));
+    res.sendFile(path.resolve(__dirname, '../../src/index.html'));
   });
 
   taskModel.observe('before save', function checkCensoredWords(ctx, next) {

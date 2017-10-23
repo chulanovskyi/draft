@@ -6,8 +6,8 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-hot-middleware/client',
-    './client/index',
+    'webpack-hot-middleware/src',
+    './src/index',
   ],
   output: {
     path: __dirname,

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoItem /> should match its snapshot 1`] = `
+<li
+  className="todoList__item"
+>
+  <div
+    className="item__nameContainer"
+  >
+    <i
+      className="fa fa-circle-o nameContainer__status"
+      onClick={[Function]}
+    />
+    <span
+      className="nameContainer__name"
+      onClick={[Function]}
+      title="read book"
+    >
+      read book
+    </span>
+    <i
+      className="fa fa-pencil item__editTask"
+      onClick={[Function]}
+    />
+  </div>
+  <i
+    className="fa fa-times item__removeTask"
+    onClick={[Function]}
+  />
+  <div
+    className="hidden"
+  >
+    <div
+      className="history__change"
+    >
+      <i
+        className="fa fa-times change__remove"
+        onClick={[Function]}
+      />
+      <div
+        className="change__header"
+      >
+        <span
+          className="change__prop"
+        >
+          Text
+        </span>
+        <span
+          className="change__date"
+        >
+          2017 M10 19 15:39:10
+        </span>
+      </div>
+      <div
+        className="change__body"
+      >
+        <span
+          className="change__from"
+          title=""
+        >
+          
+        </span>
+        <i
+          className="fa fa-arrow-right change__arrow"
+        />
+        <span
+          className="change__to"
+          title="read book"
+        >
+          read book
+        </span>
+      </div>
+    </div>
+  </div>
+  <i
+    className="fa fa-long-arrow-up item__closeHistory displayNone"
+    onClick={[Function]}
+  />
+</li>
+`;

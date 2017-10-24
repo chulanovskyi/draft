@@ -50,7 +50,6 @@ function* updateTodo(action) {
 function* applyTodoOptions(action) {
   try {
     const applied = yield call(todoApi.applyOptions, action);
-    console.log(applied);
     yield put({type: APPLY_OPTIONS_DONE, applied});
   } catch (e) {
     yield put({type: APPLY_OPTIONS_ERROR, message: e.message});

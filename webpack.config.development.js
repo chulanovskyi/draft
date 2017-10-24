@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-hot-middleware/src',
+    './node_modules/webpack-hot-middleware',
     './src/index',
   ],
   output: {
@@ -30,7 +30,7 @@ module.exports = {
             'stage-2',
           ],
         },
-        include: path.join(__dirname, 'client'),
+        include: path.join(__dirname, 'src'),
       },
       {
         test: /\.css$/,

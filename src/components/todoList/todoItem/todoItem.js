@@ -39,7 +39,7 @@ class TodoItem extends Component {
       });
     }
     this.setState({
-      editedTask: e.target.value,
+      editedName: e.target.value,
     })
   };
 

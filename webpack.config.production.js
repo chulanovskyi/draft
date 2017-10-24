@@ -17,8 +17,7 @@ module.exports = {
       {
         test: /\.jsx$/,
         loaders: ['babel-loader'],
-        // exclude: /node_modules/,
-        include: path.join(__dirname, 'client'),
+        include: path.join(__dirname, 'src'),
       },
       {
         test: /\.css$/,

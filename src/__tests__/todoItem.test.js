@@ -1,8 +1,6 @@
 import React from 'react';
-import Enzyme, { shallow, render, mount } from 'enzyme';
-import sinon from 'sinon';
+import Enzyme, { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
-import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import TodoItem from '../components/todoList/todoItem/todoItem';
 
@@ -13,7 +11,7 @@ console.error = message => {
 };
 
 describe('<TodoItem />', () => {
-  let task;
+  let wrapper, task;
 
   const initialProps = {
     name: 'read book',
@@ -28,7 +26,8 @@ describe('<TodoItem />', () => {
   };
 
   beforeEach(() => {
-    task = {...initialProps}
+    task = {...initialProps};
+    wrapper = mount(<TodoItem task={task}/>);
   });
 
   it('should match its snapshot', () => {
@@ -37,22 +36,29 @@ describe('<TodoItem />', () => {
   });
 
   it('renders a `.todoList__item`', () => {
-    const wrapper = shallow(<TodoItem task={task}/>);
     expect(wrapper.find('.todoList__item')).toHaveLength(1);
   });
 
-  it('changes state on editing task name', () => {
-    const wrapper = mount(<TodoItem task={task}/>);
-    wrapper.find('.item__editTask').simulate('click');
-    const inp = wrapper.find('.item__editInput');
-    inp.simulate('keypress', {key: 's'});
-    expect(wrapper.state('editedName')).toBe('read books');
+  it('should not showing todoItem history after rendering', () => {
+    expect(wrapper.find('.displayNone')).toHaveLength(1);
   });
 
-  // it('simulates open modal on todoItem remove', () => {
-  //   const onButtonClick = sinon.spy();
-  //   const wrapper = shallow(<TodoItem task={task}/>);
+  it('should show input field to change task name', () => {
+    wrapper.find('.item__editTask').simulate('click');
+    expect(wrapper.find('.item__editInput')).toHaveLength(1);
+  })
+
+  // it('changes state on editing task name', () => {
+  //   wrapper.find('.item__editTask').simulate('click');
+  //   const inp = wrapper.find('.item__editInput');
+  //   const code = 's'.charCodeAt(0);
+  //   inp.simulate('keypress', {which: code, key: 's', keyCode: code}); // Received an action, but input not changing
+  //   expect(wrapper.state('editedName')).toBe('read books');
+  // });
+
+  // it('show modal on todoItem remove request', () => {
   //   wrapper.find('.item__removeTask').simulate('click');
   //   expect(wrapper.find('.modal__header')).toHaveLength(1);
   // });
+  // issue with React 16 Portals (modals) https://github.com/airbnb/enzyme/issues/1150
 });

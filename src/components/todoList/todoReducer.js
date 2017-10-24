@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import {
   GET_TASKS_DONE, ADD_TASK_DONE, REMOVE_TASK_DONE, UPDATE_TASK_DONE,
   FILTER_TASKS, APPLY_OPTIONS_DONE,
-} from './todoActions';
+} from './constants/actionTypes';
 
 export const initialState = {
   tasks: [{

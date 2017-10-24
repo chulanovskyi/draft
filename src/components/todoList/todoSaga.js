@@ -3,11 +3,11 @@ import * as todoApi from './todoApi';
 import {
   GET_TASKS, GET_TASKS_DONE, GET_TASKS_ERROR,
   ADD_TASK, ADD_TASK_DONE, ADD_TASK_ERROR,
-  REMOVE_TASK, REMOVE_TASK_DONE, REMOVE_TASK_ERROR,
+  REMOVE_TASK, REMOVE_TASK_ERROR,
   UPDATE_TASK, UPDATE_TASK_DONE, UPDATE_TASK_ERROR,
   APPLY_OPTIONS, APPLY_OPTIONS_DONE, APPLY_OPTIONS_ERROR,
   CLEAR_OPTIONS,
-} from "./todoActions";
+} from "./constants/actionTypes";
 
 function* getTodos(action) {
   try {

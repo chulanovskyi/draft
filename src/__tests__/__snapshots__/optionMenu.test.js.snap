@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OptionMenu /> should match its snapshot 1`] = `
+<div
+  className="container__options"
+>
+  <span
+    className="fa fa-caret-right options__caret"
+    onClick={[Function]}
+  >
+    Options
+  </span>
+  <div
+    className="hidden"
+  >
+    <div
+      className="optionList__item"
+    >
+      <span
+        className="item__optionLabel"
+      >
+        Sort
+      </span>
+      <select
+        className="item__sortSelector"
+        onChange={[Function]}
+      >
+        <option
+          value="ASC"
+        >
+          A -&gt; Z
+        </option>
+        <option
+          value="DESC"
+        >
+          Z -&gt; A
+        </option>
+      </select>
+    </div>
+    <div
+      className="optionList__item"
+    >
+      <span
+        className="item__optionLabel"
+      >
+        Filter
+      </span>
+      <div
+        className="item__filterQuery"
+      >
+        <input
+          onChange={[Function]}
+          onKeyPress={[Function]}
+        />
+        <div
+          className="filterQuery__matchCase"
+        >
+          <i
+            className="filterQuery__button
+                        fa fa-circle-o"
+            onClick={[Function]}
+          />
+          <span>
+            match case
+          </span>
+        </div>
+        <div>
+          <i
+            className="filterQuery__button
+                        fa fa-circle-o"
+            onClick={[Function]}
+          />
+          <span>
+            exact match
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="item__wrapApply"
+    >
+      <div
+        className="optionList__item isActiveSelector__item scaleSmaller"
+      >
+        <span
+          className="item__apply"
+          onClick={[Function]}
+        >
+          Clear
+        </span>
+      </div>
+      <div
+        className="optionList__item isActiveSelector__item scaleSmaller"
+      >
+        <span
+          className="item__apply"
+          onClick={[Function]}
+        >
+          Apply
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

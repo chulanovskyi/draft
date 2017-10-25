@@ -12,6 +12,10 @@ module.exports = function(app) {
     res.sendFile(path.resolve(__dirname, '../../src/index.html'));
   });
 
+  router.get('/homework', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../src/index.html'));
+  });
+
   taskModel.observe('before save', function checkCensoredWords(ctx, next) {
     console.log(ctx);
     next();

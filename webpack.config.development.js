@@ -4,6 +4,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  devServer: {
+    historyApiFallback: true,
+  },
   devtool: 'eval',
   entry: [
     './node_modules/webpack-hot-middleware',
@@ -33,10 +36,11 @@ module.exports = {
         include: path.join(__dirname, 'src'),
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         use: [
           {loader: 'style-loader'},
           {loader: 'css-loader'},
+          {loader: 'sass-loader'},
         ],
       },
       {

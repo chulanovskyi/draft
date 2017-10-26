@@ -18,21 +18,31 @@ export class D3HomeWork extends Component {
   render() {
     const svg = ReactFauxDOM.createElement('svg');
 
-    const barHeight = 30;
+    const svgHeight = 400;
+
+    const [scoreMin, scoreMax] = d3.extent(scores, (s) => s.score);
+
+    const barWidth = 30;
+
+    const svgWidth = scores.length * barWidth + 5;
+
     const maxPropertyLength = d3.max(scores, (s) => s.score);
+
+    const colors = d3.scaleSequential(d3.interpolateRainbow)
+      .domain([scoreMin, scoreMax]);
 
     const propertyScale = d3.scaleLinear()
       .domain([0, maxPropertyLength])
       .range([0, 300]);
 
     const plot = d3.select(svg)
-      .attr('width', '350px')
-      .attr('height', '600px');
-    // .style('border', '1px solid #FFF')
-    // .style('border-radius', '5px');
+      .attr('width', svgWidth)
+      .attr('height', svgHeight)
+      .style('border', '1px solid #FFF')
+      .style('border-radius', '5px');
 
     plot.append('text')
-      .attr('x', '33%')
+      .attr('x', '39%')
       .attr('y', '20px')
       .attr('font-size', '20px')
       .attr('fill', '#FFF')
@@ -43,7 +53,7 @@ export class D3HomeWork extends Component {
       .text('Scores');
 
     const gWrap = plot.append('g')
-      .attr('transform', 'translate(0, 40)');
+      .attr('transform', 'translate(5, 40)');
 
     const itemGroup = gWrap.selectAll('g')
       .data(scores);
@@ -51,21 +61,21 @@ export class D3HomeWork extends Component {
     const newItemGroup = itemGroup
       .enter()
       .append('g')
-      .attr('transform', (s, i) => `translate(0, ${i * barHeight})`);
+      .attr('transform', (s, i) => `translate(${i * barWidth}, 0)`);
 
     newItemGroup
       .append('rect')
       .attr('class', 'task__bar')
-      .attr('width', (s) => propertyScale(s.score))
-      .attr('height', barHeight - 5)
-      .style('fill', '#80D8FF')
+      .attr('width', barWidth - 5)
+      .attr('height', (s) => propertyScale(s.score))
+      .style('fill', (s) => colors(s.score))
       .append('title')
       .text((t) => t.name);
 
     newItemGroup
       .append('text')
-      .attr('x', 320)
-      .attr('y', 18)
+      .attr('x', 5)
+      .attr('y', svgHeight - 45)
       .style('fill', '#FFF')
       .text((s) => s.score);
 

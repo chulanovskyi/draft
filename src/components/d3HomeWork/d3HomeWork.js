@@ -16,6 +16,8 @@ const scores = [
   { name: 'Jedi', score: 100 }
 ];
 
+const grayColor = 'rgb(133,133,133)';
+
 export class D3HomeWork extends Component {
   render() {
     const root = document.getElementById('root');
@@ -80,6 +82,18 @@ export class D3HomeWork extends Component {
       .attr('height', (s) => propertyScale(s.score))
       .attr('transform', (s, i) => `translate(${barWidth}, ${svgHeight - barBottomTextPadding}) rotate(180)`)
       .style('fill', (s) => colors(s.score))
+      .on('click', function (s, i, el) {
+        let currentColor = el[i].style.fill;
+        console.log(d3.select(this).style('fill'));
+        if(currentColor === grayColor) {
+          d3.select(this).style('fill', '#fff');
+
+          console.log('TO COLOR0', (s) => colors(s.score));
+        } else {
+          d3.select(this).style('fill', grayColor)
+          console.log('TO GRAY', grayColor);
+        }
+      })
       .append('title')
       .text((t) => t.name);
 

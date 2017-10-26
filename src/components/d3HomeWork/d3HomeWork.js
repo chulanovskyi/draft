@@ -11,21 +11,25 @@ const scores = [
   { name: 'Jon', score: 50 },
   { name: 'Rick', score: 61 },
   { name: 'Roy', score: 42 },
-  { name: 'Tom', score: 82 }
+  { name: 'Tom', score: 82 },
+  { name: 'Sith', score: 1 },
+  { name: 'Jedi', score: 100 }
 ];
 
 export class D3HomeWork extends Component {
   render() {
+    const root = document.getElementById('root');
+    root.style.textAlign = 'center';
+
+    const barWidth = 50;
+    const svgHeight = 400;
+    const svgWidth = scores.length * barWidth + 5;
+    const barBottomTextPadding = 65;
+    const barTopTextPadding = 80;
+
     const svg = ReactFauxDOM.createElement('svg');
 
-    const svgHeight = 400;
-
     const [scoreMin, scoreMax] = d3.extent(scores, (s) => s.score);
-
-    const barWidth = 30;
-
-    const svgWidth = scores.length * barWidth + 5;
-
     const maxPropertyLength = d3.max(scores, (s) => s.score);
 
     const colors = d3.scaleSequential(d3.interpolateRainbow)
@@ -42,18 +46,16 @@ export class D3HomeWork extends Component {
       .style('border-radius', '5px');
 
     plot.append('text')
-      .attr('x', '39%')
+      .attr('x', `${svgWidth / 2 - 25}`)
       .attr('y', '20px')
       .attr('font-size', '20px')
       .attr('fill', '#FFF')
       .append('tspan')
-      .style('width', '100%')
       .style('color', '#FFF')
-      .style('text-align', 'center')
       .text('Scores');
 
     const gWrap = plot.append('g')
-      .attr('transform', 'translate(5, 40)');
+      .attr('transform', `translate(5, 40)`);
 
     const itemGroup = gWrap.selectAll('g')
       .data(scores);
@@ -61,23 +63,32 @@ export class D3HomeWork extends Component {
     const newItemGroup = itemGroup
       .enter()
       .append('g')
-      .attr('transform', (s, i) => `translate(${i * barWidth}, 0)`);
+      .attr('class', 'container__bar')
+      .attr('transform', (s, i) => `translate(${i * barWidth - 5}, 0)`);
+
+    newItemGroup
+      .append('text')
+      .attr('x', barWidth/2 - 8)
+      .attr('y', (s) => svgHeight - propertyScale(s.score) - barTopTextPadding)
+      .style('fill', '#FFF')
+      .text((s) => s.score);
 
     newItemGroup
       .append('rect')
       .attr('class', 'task__bar')
       .attr('width', barWidth - 5)
       .attr('height', (s) => propertyScale(s.score))
+      .attr('transform', (s, i) => `translate(${barWidth}, ${svgHeight - barBottomTextPadding}) rotate(180)`)
       .style('fill', (s) => colors(s.score))
       .append('title')
       .text((t) => t.name);
 
     newItemGroup
       .append('text')
-      .attr('x', 5)
+      .attr('x', 10)
       .attr('y', svgHeight - 45)
       .style('fill', '#FFF')
-      .text((s) => s.score);
+      .text((s) => s.name);
 
     return svg.toReact();
   }

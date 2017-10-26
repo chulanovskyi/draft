@@ -46,19 +46,22 @@ describe('<TodoItem />', () => {
   it('should show input field to change task name', () => {
     wrapper.find('.item__editTask').simulate('click');
     expect(wrapper.find('.item__editInput')).toHaveLength(1);
-  })
+  });
 
   // it('changes state on editing task name', () => {
   //   wrapper.find('.item__editTask').simulate('click');
-  //   const inp = wrapper.find('.item__editInput');
+  //   let inp = wrapper.find('.item__editInput');
   //   const code = 's'.charCodeAt(0);
-  //   inp.simulate('keypress', {which: code, key: 's', keyCode: code}); // Received an action, but input not changing
+  //   inp.simulate('keyPress', {which: 89, key: 'z', keyCode: 89}); // Received an action, but input not changing
+  //   // inp.simulate('keypress', {which: 27, key: 'Enter', keyCode: 27});
   //   expect(wrapper.state('editedName')).toBe('read books');
   // });
 
-  // it('show modal on todoItem remove request', () => {
-  //   wrapper.find('.item__removeTask').simulate('click');
-  //   expect(wrapper.find('.modal__header')).toHaveLength(1);
-  // });
-  // issue with React 16 Portals (modals) https://github.com/airbnb/enzyme/issues/1150
+//   it('show modal on todoItem remove request', () => {
+//     wrapper.find('.item__removeTask').simulate('click');
+//     expect(wrapper.find('.modal__header')).toHaveLength(1);
+//   });
+//   issue with React 16 Portals (modals) https://github.com/airbnb/enzyme/issues/1150
+// });
+
 });

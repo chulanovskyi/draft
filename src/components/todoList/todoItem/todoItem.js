@@ -29,7 +29,6 @@ class TodoItem extends Component {
   };
 
   editTask = (e, task) => {
-    // console.log(e.target.value);
     if (e.key === 'Enter') {
       this.setState({
         show: false,
